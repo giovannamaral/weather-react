@@ -103,7 +103,7 @@ export default function Weather() {
         </div>
       </div>
       <div>
-        <a className="id" href="https://github.com/giovannamaral/weatherapp">
+        <a className="id" href="https://github.com/giovannamaral/weather-react">
           Open-source code
         </a>
         by Giovanna Amaral
