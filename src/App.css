@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+body {
+  margin: 50px 50px;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.temperature-scale {
+  font-size: 22px;
+  font-style: italic;
+  color: #f7fbfc;
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-body {
+  background-color: #b9d7ea;
+  color: #2d4059;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.city {
+  font-size: 35px;
 }
 
-.App-link {
-  color: #61dafb;
+.date {
+  font-size: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.forecast {
+  font-size: 20px;
+  font-style: italic;
+  color: #f7fbfc;
+}
+
+.current-temperature {
+  font-size: 100px;
+  line-height: 1;
+}
+
+.fas {
+  font-size: 25px;
+  color: #f7fbfc;
+}
+
+.current-weather-icon {
+  font-size: 50px;
+}
+
+.more-info {
+  font-size: 25px;
+}
+
+#forecast {
+  font-size: 21px;
+}
+
+.id {
+  color: #b9d7ea;
+  text-decoration: none;
+}
+
+.id:hover {
+  color: #4091ee;
 }
