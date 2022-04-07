@@ -1,17 +1,10 @@
-import "./App.css";
+import axios from "axios";
+import "./Weather.css";
 
 export default function Weather() {
-  let weatherData = {
-    city: "Rio de Janeiro",
-    temperature: 20,
-    date: "Thursday 15:55",
-    description: "rainy",
-    highestTemp: 21,
-    lowestTemp: 18,
-    humidity: 94,
-    feelsLike: 20,
-    wind: 3,
-  };
+  const apiKey = "32130c3b8a0437384dedf304822df8d4";
+  let city = "Rio de Janeiro";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   return (
     <div className="Weather">
       <div className="card card">
@@ -41,17 +34,15 @@ export default function Weather() {
           <div className="row">
             <div className="col-8">
               <div className="text-center py-4">
-                <div className="city">{weatherData.city}</div>
-                <div id="day">{weatherData.date}</div>
-                <div className="forecast">{weatherData.description}</div>
+                <div className="city">Rio de Janeiro</div>
+                <div id="day">Thursday</div>
+                <div className="forecast">rainy</div>
               </div>
               <div className="row">
                 <div className="col">
                   <div className="row align-items-center">
                     <div className="text-center col">
-                      <div className="current-temperature">
-                        {weatherData.temperature}
-                      </div>
+                      <div className="current-temperature">26</div>
                       <span className="temperature-scale">°C </span>
                     </div>
                     <div className="col">
@@ -68,29 +59,23 @@ export default function Weather() {
                   <div className="more-info">
                     <div>
                       <strong>H: </strong>
-                      <span className="max-temp">
-                        {weatherData.highestTemp}
-                      </span>
+                      <span className="max-temp">30</span>
                       °|
                       <strong>L: </strong>
-                      <span className="min-temp">{weatherData.lowestTemp}</span>
-                      °
+                      <span className="min-temp">23</span>°
                     </div>
 
                     <div>
                       <strong>Humidity: </strong>
-                      <span className="humidity">{weatherData.humidity}</span>%
+                      <span className="humidity">85</span>%
                     </div>
                     <div>
                       <strong>Feels like: </strong>
-                      <span className="feels-like">
-                        {weatherData.feelsLike}
-                      </span>
-                      °
+                      <span className="feels-like">28</span>°
                     </div>
                     <div>
                       <strong>Wind speed: </strong>
-                      <span className="wind-speed">{weatherData.wind}</span>
+                      <span className="wind-speed">16</span>
                       km/h
                     </div>
                   </div>
@@ -105,7 +90,7 @@ export default function Weather() {
       <div>
         <a className="id" href="https://github.com/giovannamaral/weather-react">
           Open-source code
-        </a>
+        </a>{" "}
         by Giovanna Amaral
       </div>
     </div>

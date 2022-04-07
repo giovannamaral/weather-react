@@ -1,0 +1,61 @@
+.Weather {
+  margin: 50px 50px;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+}
+
+.Weather .temperature-scale {
+  font-size: 22px;
+  font-style: italic;
+  color: #f7fbfc;
+  text-decoration: none;
+}
+
+.Weather .card-body {
+  background-color: #b9d7ea;
+  color: #2d4059;
+}
+
+.Weather .city {
+  font-size: 35px;
+}
+
+.Weather .date {
+  font-size: 15px;
+}
+
+.Weather .forecast {
+  font-size: 20px;
+  font-style: italic;
+  color: #f7fbfc;
+}
+
+.Weather .current-temperature {
+  font-size: 100px;
+  line-height: 1;
+}
+
+.Weather .fas {
+  font-size: 25px;
+  color: #f7fbfc;
+}
+
+.Weather .current-weather-icon {
+  font-size: 50px;
+}
+
+.Weather .more-info {
+  font-size: 25px;
+}
+
+.Weather #forecast {
+  font-size: 21px;
+}
+
+.Weather .id {
+  color: #b9d7ea;
+  text-decoration: none;
+}
+
+.Weather .id:hover {
+  color: #4091ee;
+}
