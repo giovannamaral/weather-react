@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -22,12 +23,28 @@ export default function Weather(props) {
     });
   }
 
+  function search() {
+    const apiKey = "32130c3b8a0437384dedf304822df8d4";
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
         <div className="card card">
           <div className="card-body px-5 py-5">
-            <form id="search-form">
+            <form id="search-form" onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-8">
                   <input
@@ -36,6 +53,7 @@ export default function Weather(props) {
                     id="exampleInputEmail1"
                     placeholder="Enter your city"
                     autoComplete="off"
+                    onChange={handleCityChange}
                   />
                 </div>
                 <div className="col-4">
@@ -49,85 +67,13 @@ export default function Weather(props) {
                 </div>
               </div>
             </form>
-            <div className="row">
-              <div className="col-8">
-                <div className="text-center py-4">
-                  <div className="city">{weatherData.city}</div>
-                  <div id="day">
-                    <FormattedDate date={weatherData.date} />
-                  </div>
-                  <div className="forecast">{weatherData.description}</div>
-                </div>
-                <div className="row">
-                  <div className="col">
-                    <div className="row align-items-center">
-                      <div className="text-center col">
-                        <div className="current-temperature">
-                          {Math.round(weatherData.temperature)}
-                        </div>
-                        <span className="temperature-scale">°C </span>
-                      </div>
-                      <div className="col">
-                        <img
-                          src={weatherData.iconUrl}
-                          alt={weatherData.description}
-                          class="current-weather-icon"
-                          id="icon"
-                        ></img>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col">
-                    <div className="more-info">
-                      <div>
-                        <strong>H: </strong>
-                        <span className="max-temp">
-                          {Math.round(weatherData.highestTemp)}
-                        </span>
-                        °|
-                        <strong>L: </strong>
-                        <span className="min-temp">
-                          {Math.round(weatherData.lowestTemp)}
-                        </span>
-                        °
-                      </div>
-
-                      <div>
-                        <strong>Humidity: </strong>
-                        <span className="humidity">{weatherData.humidity}</span>
-                        %
-                      </div>
-                      <div>
-                        <strong>Feels like: </strong>
-                        <span className="feels-like">
-                          {Math.round(weatherData.feelsLike)}
-                        </span>
-                        °
-                      </div>
-                      <div>
-                        <strong>Wind speed: </strong>
-                        <span className="wind-speed">
-                          {Math.round(weatherData.wind)}
-                        </span>
-                        km/h
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-4 text-center py-5 px-5" id="forecast"></div>
-            </div>
+            <WeatherInfo data={weatherData} />
           </div>
         </div>
       </div>
     );
   } else {
-    const apiKey = "32130c3b8a0437384dedf304822df8d4";
-
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-
+    search();
     return "Loading...";
   }
 }
