@@ -34,28 +34,8 @@ export default function WeatherInfo(props) {
           <div className="col">
             <div className="more-info">
               <div>
-                <strong>H: </strong>
-                <span className="max-temp">
-                  {Math.round(props.data.highestTemp)}
-                </span>
-                °|
-                <strong>L: </strong>
-                <span className="min-temp">
-                  {Math.round(props.data.lowestTemp)}
-                </span>
-                °
-              </div>
-
-              <div>
                 <strong>Humidity: </strong>
                 <span className="humidity">{props.data.humidity}</span>%
-              </div>
-              <div>
-                <strong>Feels like: </strong>
-                <span className="feels-like">
-                  {Math.round(props.data.feelsLike)}
-                </span>
-                °
               </div>
               <div>
                 <strong>Wind speed: </strong>

@@ -1,0 +1,18 @@
+.App {
+  max-width: 960px;
+  margin: 30px auto;
+}
+
+.App footer {
+  font-size: 11px;
+  margin: 10px 0;
+}
+
+.App .id {
+  color: #b9d7ea;
+  text-decoration: none;
+}
+
+.App .id:hover {
+  color: #4091ee;
+}

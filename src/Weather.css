@@ -1,13 +1,5 @@
 .Weather {
-  margin: 50px 50px;
   font-family: "Zen Kaku Gothic Antique", sans-serif;
-}
-
-.Weather .temperature-scale {
-  font-size: 22px;
-  font-style: italic;
-  color: #f7fbfc;
-  text-decoration: none;
 }
 
 .Weather .card-body {
@@ -49,13 +41,4 @@
 
 .Weather #forecast {
   font-size: 21px;
-}
-
-.Weather .id {
-  color: #b9d7ea;
-  text-decoration: none;
-}
-
-.Weather .id:hover {
-  color: #4091ee;
 }
