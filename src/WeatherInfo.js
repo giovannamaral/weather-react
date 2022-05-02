@@ -5,51 +5,45 @@ import WeatherTemperature from "./WeatherTemperature";
 export default function WeatherInfo(props) {
   return (
     <div className="row">
-      <div className="col-8">
-        <div className="text-center py-4">
-          <div className="city">{props.data.city}</div>
-          <div id="day">
-            <FormattedDate date={props.data.date} />
-          </div>
-          <div className="forecast">{props.data.description}</div>
+      <div className="text-center py-4">
+        <div className="city">{props.data.city}</div>
+        <div id="day">
+          <FormattedDate date={props.data.date} />
         </div>
-        <div className="row">
-          <div className="col">
-            <div className="row align-items-center">
-              <div className="text-center col">
-                <WeatherTemperature
-                  celsius={Math.round(props.data.temperature)}
-                />
-              </div>
-              <div className="col">
-                <img
-                  src={props.data.iconUrl}
-                  alt={props.data.description}
-                  class="current-weather-icon"
-                  id="icon"
-                ></img>
-              </div>
+        <div className="forecast">{props.data.description}</div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <div className="row align-items-center">
+            <div className="text-center col">
+              <WeatherTemperature
+                celsius={Math.round(props.data.temperature)}
+              />
+            </div>
+            <div className="col">
+              <img
+                src={props.data.iconUrl}
+                alt={props.data.description}
+                class="current-weather-icon"
+                id="icon"
+              ></img>
             </div>
           </div>
-          <div className="col">
-            <div className="more-info">
-              <div>
-                <strong>Humidity: </strong>
-                <span className="humidity">{props.data.humidity}</span>%
-              </div>
-              <div>
-                <strong>Wind speed: </strong>
-                <span className="wind-speed">
-                  {Math.round(props.data.wind)}
-                </span>
-                km/h
-              </div>
+        </div>
+        <div className="col">
+          <div className="more-info">
+            <div>
+              <strong>Humidity: </strong>
+              <span className="humidity">{props.data.humidity}</span>%
+            </div>
+            <div>
+              <strong>Wind speed: </strong>
+              <span className="wind-speed">{Math.round(props.data.wind)}</span>
+              km/h
             </div>
           </div>
         </div>
       </div>
-
-      <div className="col-4 text-center py-5 px-5" id="forecast"></div>
     </div>
   );
 }
